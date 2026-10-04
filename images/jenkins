@@ -17,7 +17,7 @@ pipeline {
         stage('Packer Initialization'){
               steps {
                 sh '''
-                    cd images && /usr/bin/packer init image.pkr.hcl
+                    cd images && /usr/bin/packer init images.pkr.hcl
                 '''
               }
         }
