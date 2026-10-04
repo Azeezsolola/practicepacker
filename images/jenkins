@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        PATH = "${PATH}:${getTerraformPath()}"
+        PATH = "${PATH}:/usr/bin"
         AMI_ID="stack-ami-golden-${BUILD_NUMBER}"
         VERSION = "1.0.${BUILD_NUMBER}"
     }
@@ -81,7 +81,4 @@ pipeline {
     }
 }
 
- def getTerraformPath(){
-        def tfHome= tool name: 'terraform-14', type: 'terraform'
-        return tfHome
-    }
+
