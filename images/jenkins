@@ -29,7 +29,7 @@ pipeline {
                  sed -i "s/ami-stack-golden-image-[0-9]*/${AMI_ID}/" ./images.pkr.hcl 
                  export PACKER_LOG=1
                  export PACKER_LOG_PATH=$WORKSPACE/packer.log
-                 /usr/bin/packer build -force image.pkr.hcl 
+                 /usr/bin/packer build -force images.pkr.hcl 
                  '''
                
          }
