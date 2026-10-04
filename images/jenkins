@@ -1,5 +1,5 @@
 pipeline {
-    
+    agent any
     environment {
         PATH = "${PATH}:${getTerraformPath()}"
         AMI_ID="stack-ami-golden-${BUILD_NUMBER}"
