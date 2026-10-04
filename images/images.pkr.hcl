@@ -9,7 +9,7 @@ packer {
 
 
 variable "aws_source_ami" {
-  default = "Amazon Linux 2023 AMI 2023.12.20260930.0 x86_64 HVM kernel-6.18"
+  default = "ami-0d27e0fb3bac4d724"
 }
 
 variable "aws_instance_type" {
@@ -40,14 +40,7 @@ variable "aws_region" {
   default = "us-east-1"
 }
 
-data "amazon-ami" "source_ami" {
-  filters = {
-    name = "${var.aws_source_ami}"
-  }
-  most_recent = true
-  owners      = ["276925326643","amazon"]
-  region      = "${var.aws_region}"
-}
+
 
 
 
@@ -78,7 +71,7 @@ source "amazon-ebs" "amazon_ebs" {
     volume_type           = "gp2"
   }
   region                  = "${var.aws_region}"
-  source_ami              = "${data.amazon-ami.source_ami.id}"
+  source_ami              = "${var.aws_source_ami}"
   ssh_pty                 = true
   ssh_timeout             = "5m"
   ssh_username            = "ec2-user"
