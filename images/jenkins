@@ -26,7 +26,7 @@ pipeline {
                  //slackSend (color: '#FFFF00', message: "STARTING PACKER IMAGE BUILD: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
                  sh '''
                  cd images
-                 sed -i "s/ami-stack-golden-image-[0-9]*/${AMI_ID}/" ./image.pkr.hcl 
+                 sed -i "s/ami-stack-golden-image-[0-9]*/${AMI_ID}/" ./images.pkr.hcl 
                  export PACKER_LOG=1
                  export PACKER_LOG_PATH=$WORKSPACE/packer.log
                  /usr/bin/packer build -force image.pkr.hcl 
