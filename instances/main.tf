@@ -13,9 +13,9 @@ provider "aws" {
   region = var.region
 }
 
-data "aws_key_pair" "existing_key" {
-  key_name = "clixxkeynew"
-}
+# data "aws_key_pair" "existing_key" {
+#   key_name = "clixxkeynew"
+# }
 
 
 data "aws_vpc" "existing_vpc" {
@@ -83,7 +83,7 @@ resource "aws_instance" "application_server" {
   subnet_id                   = data.aws_subnet.stack_subnet.id
   vpc_security_group_ids      = [aws_security_group.sg_22_80.id]
   associate_public_ip_address = true
-  key_name = data.aws_key_pair.existing_key.key_name
+  key_name = "clixxkeynew"
 
   tags = {
     Name = "Test_Instance"
