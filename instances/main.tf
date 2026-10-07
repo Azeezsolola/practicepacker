@@ -14,7 +14,7 @@ provider "aws" {
 }
 
 data "aws_key_pair" "existing_key" {
-  key_name = "clixxkey2"
+  key_name = "clixxkeynew"
 }
 
 
